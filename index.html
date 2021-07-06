@@ -4,14 +4,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>
-    Use the console to play
-    </h1>
-    <div class = "class">
+    <div class = "instructions">
+        <h1>Pyro, Hydro, Dendro</h1>
+        <p>You and your opponent starts with 5 HP. The first to 0 loses. <br> Pyro beats Dendro, Dendro beats Hydro, and Hydro beats Pyro.</p>
+    </div>
+
+    <div class = "container">
+        <div class="pyro">
+            <input type="image" src="images/pyro.png" width="120em" name="pyro" id="pyroBtn">
+            <p>Pyro</p>
+        </div>
+        <div class="hydro">
+            <input type="image" src="images/hydro.png" width="120em" name="hydro" id="hydroBtn">
+            <p>Hydro</p>
+        </div>
+        <div class="dendro">
+            <input type="image" src="images/dendro.png" width="120em" name="dendro" id="dendroBtn">
+            <p>Dendro</p>
+        </div>
+    </div>
+
+    <div class = "score">
+        <div class = "score1" id = "scoring">
+            <p id="computerPick"> Opponent picked:</p>
+        </div>
+        <div class = "score2">
+            <p id="youPick"> You picked: </p> 
+        </div>
+        <div class = "score3">
+            <div class="round">
+                <p id="round">Round: </p>
+            </div>
+            <div class="yourHP">
+                <p id="yourHP">Your HP: </p>
+            </div>
+            <div class="opponentsHP">
+                <p id="computerHP">Opponent's HP: </p>
+            </div>
+    </div>
+
+    <div class="break"></div>
+
+    <div class="outcome">
+        <p id = "outcome">Click pyro, hydro, or dendro to start the game.</p>
     </div>
 </body>
-
 <script src = "rockpaperscissors.js"></script>
 </html>

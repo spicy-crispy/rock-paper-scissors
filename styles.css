@@ -1,0 +1,135 @@
+@font-face {
+    font-family: 'Charter';
+    src: url('charter-bold.ttf') format('ttf');
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+    background-color:rgba(240, 240, 240, 0.50);
+    font-family: Charter;
+}
+
+h1 {
+    font-size: 1.5em; 
+}
+
+.instructions {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    
+}
+
+.instructions p {
+    font-size: 1.25em;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5em;
+    font-weight: 600;
+}
+
+img {
+    width: 5em;
+    height: auto;
+}
+
+
+.pyro {
+    display: flex;
+    flex-direction: column;
+    padding: 1em 1em 0em 1em;
+    border: 0.3em solid rgba(177,46,48,255);
+    margin: 1.25em;
+    background-color: rgb(78, 22, 22);
+    border-radius: 0.75em;
+    text-align: center;
+    color: rgba(177,46,48,255);
+}
+
+.hydro {
+    display: flex;
+    flex-direction: column;
+    padding: 1em 1em 0em 1em;
+    border: 0.3em solid rgba(1,229,255,255);
+    margin: 1.25em;
+    background-color: rgb(25, 80, 94);
+    border-radius: 0.75em;
+    text-align: center;
+    color: rgba(1,229,255,255);
+}
+
+.dendro {
+    display: flex;
+    flex-direction: column;
+    padding: 1em 1em 0em 1em;
+    border: 0.3em solid rgba(177,233,42,255);
+    margin: 1.25em;
+    background-color: rgb(67, 90, 14);
+    border-radius: 0.75em;
+    text-align: center;
+    color: rgba(177,233,42,255);
+}
+
+.score {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+}
+
+
+.score1 {
+    border: 0.1em solid rgba(128, 128, 128, 0.616);
+    border-radius: 0.25em;
+    width: 10em;
+    height: 10em;
+    text-align: center;
+    margin: 0.5em;
+    margin-top: 4em;
+    background-color: whitesmoke;
+}
+
+.score2 {
+    border: 0.1em solid rgba(128, 128, 128, 0.616);
+    border-radius: 0.25em;
+    width: 10em;
+    height: 10em;
+    text-align: center;
+    margin: 0.5em;
+    margin-top: 4em;
+    background-color: whitesmoke;
+}
+
+.score3 {
+    border: 0.1em solid rgba(128, 128, 128, 0.616);
+    border-radius: 0.25em;
+    width: 10em;
+    height: 10em;
+    text-align: center;
+    margin: 0.5em;
+    margin-top: 4em;
+    background-color: whitesmoke;
+}
+
+.break {
+    display: flex;
+    flex-basis: 100%;
+}
+
+.outcome {
+    display: flex;
+    margin-top: 5em;
+    font-size: 1.25em;
+}

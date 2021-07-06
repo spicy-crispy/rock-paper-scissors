@@ -1,64 +1,87 @@
-const choices = ['rock', 'paper', 'scissors'];
+const choices = ['pyro', 'hydro', 'dendro'];
+
+let playerSelection = '';
+let playerHP = 5;
+let computerHP = 5;
+let roundCounter = 1;
+
+document.getElementById('pyroBtn').onclick = player;
+document.getElementById('hydroBtn').onclick = player;
+document.getElementById('dendroBtn').onclick = player;
 
 
-// computer randomly picks rock, paper, or scissors
 let computerPlay = function() {
     let random = Math.floor(Math.random()*choices.length);
     return choices[random];
 }
 
 
+function player() {
+    let playerSelection = this.name;
+    let computerSelection = computerPlay();
+    
 
-// play a round of rock, paper, scissors
-let playGame = function(playerSelection, computerSelection) {
-    if (computerSelection == 'rock' && playerSelection.toLowerCase() == 'scissors') {
-        console.log("Computer played: " + computerSelection + ". You played: " + playerSelection.toLowerCase() + ". Rock beats scissors. You lose!");
-        computerScore++;
-    } else if (computerSelection == 'rock' && playerSelection.toLowerCase() == 'paper') {
-        console.log("Computer played: " + computerSelection + ". You played: " + playerSelection.toLowerCase() + ". Paper beats rock. You win!");
-        playerScore++;
-    } else if (computerSelection == 'scissors' && playerSelection.toLowerCase() == 'rock') {
-        console.log("Computer played: " + computerSelection + ". You played: " + playerSelection.toLowerCase() + ". Rock beats scissors. You win!");
-        playerScore++;
-    } else if (computerSelection == 'scissors' && playerSelection.toLowerCase() == 'paper') {
-        console.log("Computer played: " + computerSelection + ". You played: " + playerSelection.toLowerCase() + ". Scissors beats paper. You lose!");
-        computerScore++;
+    document.getElementById("round").innerHTML = "Round: " + roundCounter;
+    document.getElementById("computerPick").innerHTML = "Opponent picked: <br>" + computerSelection;
+    document.getElementById("youPick").innerHTML = "You picked: <br>" + playerSelection;
+    
+    roundCounter++;
 
-    } else if (computerSelection == 'paper' && playerSelection.toLowerCase() == 'rock') {
-        console.log("Computer played: " + computerSelection + ". You played: " + playerSelection.toLowerCase() + ". Paper beats rock. You lose!");
-        computerScore++;
-    } else if (computerSelection == 'paper' && playerSelection.toLowerCase() == 'scissors') {
-        console.log("Computer played: " + computerSelection + ". You played: " + playerSelection.toLowerCase() + ". Scissors beats paper. You win!");
-        playerScore++;
 
-    } else  if (computerSelection == playerSelection.toLowerCase()) {
-        console.log("Computer played: " + computerSelection + ". You played: " + playerSelection.toLowerCase() + ". It's a tie!")
+    console.log("Computer: " + computerSelection);
+    console.log(compare(playerSelection, computerSelection));
 
-    } else {
-        console.log("Invalid choice. Please choose rock, paper, or scissors.")
+    function compare(playerSelection, computerSelection) {
+        if (playerSelection === computerSelection) {
+            document.getElementById("outcome").innerHTML = "It's a tie! No health points were lost.";
+        }
+        if (playerSelection === 'pyro') {
+            if (computerSelection === 'dendro') {
+                computerHP--;
+                document.getElementById("outcome").innerHTML = 'You dealt 1 HP to your opponent!';
+            } else {
+                playerHP--;
+                document.getElementById("outcome").innerHTML = 'Unfortunately, you lose 1 HP.';
+            }
+        }
+    
+        if (playerSelection === 'hydro') {
+            if (computerSelection === 'pyro') {
+                computerHP--;
+                document.getElementById("outcome").innerHTML = 'You dealt 1 HP to your opponent!';
+            } else {
+                playerHP--;
+                document.getElementById("outcome").innerHTML = 'Unfortunately, you lose 1 HP.';
+            }
+        }
+    
+        if (playerSelection === 'dendro') {
+            if (computerSelection === 'hydro') {
+                computerHP--;
+                document.getElementById("outcome").innerHTML = 'You dealt 1 HP to your opponent!';
+            } else {
+                playerHP--;
+                document.getElementById("outcome").innerHTML = 'Unfortunately, you lose 1 HP.';
+            }
+        }
     }
- }
 
-let playerScore = 0;
-let computerScore = 0;
+    document.getElementById("yourHP").innerHTML = "Your HP: " + playerHP;
+    document.getElementById("computerHP").innerHTML = "Opponent's HP: " + computerHP;
 
-
-// 5 round game of rock paper scissors
-
-let game = function() {
-   for (let i = 1; i < 6; i++) {
-        const playerSelection = prompt("Choose rock, paper, or scissors.");
-        let computerSelection = computerPlay();
-        playGame(playerSelection, computerSelection);
-        console.log("Round " + i + ". Computer score: " + computerScore + ". Player score: " + playerScore);
+    if (playerHP === 0) {
+        document.getElementById("outcome").innerHTML = "Your HP is reduced to 0. You lose!";
+        if(confirm('You lost all of your HP! You lose. Replay?')){
+            window.location.reload();  
+        }
     }
-    if (computerScore > playerScore) {
-        console.log("COMPUTER WINS! BETTER LUCK NEXT TIME.");
-    } else if (computerScore < playerScore) {
-        console.log("CONGRATULATIONS, YOU WIN!");
-    } else {
-        console.log("IT'S A TIE!");
+    
+    if (computerHP === 0) {
+        document.getElementById("outcome").innerHTML = "You reduce your opponent's HP to 0. You win!";
+        if(confirm('You reduce your opponent\'s HP to 0! You win. Replay?')){
+            window.location.reload();  
+        }
     }
+        
+    
 }
-game();
-
